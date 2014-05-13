@@ -1,0 +1,58 @@
+This folder gives the examples of SVDFeature usage.
+To use, please compile using make in folder .. and ../tools and then run the 'run.sh' in each demo fold to complete both the training phase and the test phase.
+If there is a 'run-ml100K.sh' script in the folder, you can use the Movielen data(http://www.grouplens.org/node/73) in experiments by transforming them into SVDFeature input format using the provided python scripts.
+To know more explaination and details of these examples please refer to http://svdfeature.apexlab.org/wiki/Category:Examples.
+To know the input format please refer to http://svdfeature.apexlab.org/wiki/User_Group_Format and http://svdfeature.apexlab.org/wiki/User_Group_Format.
+Here comes the illustration of the files in each folder.
+
+---- TODO ----
+- In each folder, there is a run.sh, type run.sh to run the example.
+- Additionally, there may be a run-ml100K.sh, where run the example on ml-100K data, to use the example, download ml-100K data, put ua.base ua.test on the folder, and run run-ml100K.sh
+
+---- FILES ----
+./basicMF:
+basicMF.conf: Example configure file for basic matrix factorization
+ua.base.example: Fabricated training data
+ua.test.example: Fabricated test data
+run.sh: Script to run the basic matrix factorization model
+mkbasicfeature.py: Script to transform the Movielen data(http://www.grouplens.org/node/73) into SVDFeature input format.
+run-ml100K.sh: Script to run SVDFeature using transformed Movielen data
+
+./binaryClassification:
+binaryClassification.conf: Example configure file for binary classification
+ua.base.example: Fabricated training data
+ua.test.example: Fabricated test data
+run.sh: Script to run the binary classification model
+
+./implicitfeedback:
+implicitfeedback.conf: Example configure file for matrix factorization with implicit feedback
+ua.base.group.example: Fabricated training data
+ua.base.feedbackexample: Fabricated implicit feedback features in training data
+ua.test.example: Fabricated test data
+ua.test.feedbackexample: Fabricated implicit feedback features in test data
+run.sh: Script to run the matrix factorization with implicit feedback features
+mkbasicfeature.py: Script to transform the Movielen data(http://www.grouplens.org/node/73) into SVDFeature input format with implicit feedback features.
+mkimplicitfeedbackfeature.py: Script to generate the implicit feedback features for movielen data
+run-ml100K.sh: Script to run SVDFeature using transformed Movielen data
+
+./neighborhoodModel:
+neighborhoodModel.conf: Example configure for neighborhood model
+ua.base.example: Fabricated training data with neighborhood features
+ua.test.example: Fabricated test data with neighborhood features
+run.sh: Script to run the neighborhood model
+
+./pairwiseRank:
+pairwishRank.conf: Example configure file for pairwise ranking model
+ua.base.group.example: Fabricated training data
+ua.base.feedbackexample: Fabricated implicit feedback features in training data
+ua.test.example: Fabricated test data
+ua.test.feedbackexample: Fabricated implicit feedback features in test data
+run.sh: Script to run the pairwise ranking model
+pairwiseRankML100K.conf: Example configure file for directly outputting ranking. 
+sampleneg.py: Script to generate negative samples from training data
+mkbasicfeature.py: Script to transform the Movielen data(http://www.grouplens.org/node/73) into SVDFeature input format with implicit feedback features.
+mktestrank.py: Script to generate new format of test feature for directly outputting ranking
+mkimplicitfeedbackfeature.py: Script to generate the implicit feedback features for movielen data
+mkimplicitfeedbackfeaturetest.py: Script to generate the implicit feedback features for test data
+eval.py: Script to evaluate results using the metric of Precision@20
+run-ml100K.sh: Script to run SVDFeature using transformed Movielen data 

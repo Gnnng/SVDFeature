@@ -1,0 +1,3 @@
+This folder gives an example of how to customize SVDFeature
+We use apex_svd_lite.cpp as default solver
+The key parts in Makefile are commented with #!!

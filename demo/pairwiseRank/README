@@ -1,0 +1,25 @@
+This folder gives the examples of pairwise rank usage.
+To use, please compile using make in folder ../../ and ../../tools and then run the 'run.sh' or 'run-ml100K.sh' to complete both the training phase and the test phase.
+To know more explaination and details of this example please refer to http://svdfeature.apexlab.org/wiki/Rank_Based_Matrix_Factorization and http://svdfeature.apexlab.org/wiki/Output_Ranking.
+Here comes the illustration of the files in this folder.
+
+---- TODO ----
+- There is a run.sh, type run.sh to run the example.
+- Additionally, there is a run-ml100K.sh, where run the example on ml-100K data and directly output ranking, to use the example, download ml-100K data, put ua.base ua.test on the folder, and run run-ml100K.sh. Refer to http://svdfeature.apexlab.org/wiki/Output_Ranking for explaination and details of this example.
+
+---- FILES ----
+pairwishRank.conf: Example configure file for pairwise ranking model
+ua.base.group.example: Fabricated training data
+ua.base.feedbackexample: Fabricated implicit feedback features in training data
+ua.test.example: Fabricated test data
+ua.test.feedbackexample: Fabricated implicit feedback features in test data
+run.sh: Script to run the pairwise ranking model
+pairwiseRankML100K.conf: Example configure file for directly outputting ranking. 
+sampleneg.py: Script to generate negative samples from training data
+mkbasicfeature.py: Script to transform the Movielen data(http://www.grouplens.org/node/73) into SVDFeature input format with implicit feedback features.
+mktestrank.py: Script to generate new format of test feature for directly outputting ranking
+mkimplicitfeedbackfeature.py: Script to generate the implicit feedback features for movielen data
+mkimplicitfeedbackfeaturetest.py: Script to generate the implicit feedback features for test data
+eval.py: Script to evaluate results using the metric of Precision@20
+run-ml100K.sh: Script to run SVDFeature using transformed Movielen data 
+

@@ -1,0 +1,22 @@
+----BUILD:LINUX----
+make
+
+---- BUILD: WINDOWS VS Studio ----
+build seperate project for svd_feature and svd_feature_infer
+Drag following cpp into project
+svd_feature: svd_feature.cpp apex_svd.cpp apex_svd_data.cpp solvers/gbrt/apex_reg_tree.cpp
+svd_feature_infer: svd_feature_infer.cpp apex_svd.cpp apex_svd_data.cpp solvers/gbrt/apex_reg_tree.cpp
+
+Then build the project, for cpp in folder tools, drag the single cpp and apex_svd_data.cpp will be sufficient to build the code
+
+
+----BUILD: MAC----
+Due to the lack of pthread implicit semaphore support of some mac system. Current version may not run correctly on MAC.
+
+----FOLDERS----
+* solvers: all the customization of SVDFeature solvers, not included in the basic package
+* tools  : the auxiliary tools that can be used for experiment
+* demo   : the examples that can help to get started on the toolkit
+
+----PROJECT HOMEPAGE----
+http://svdfeature.apexlab.org
