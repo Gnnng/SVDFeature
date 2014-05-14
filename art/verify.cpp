@@ -87,5 +87,5 @@ int main() {
 			bi[item] * bi[item]);
 	}
 	fclose(f_base);
-	cout << sum;
+	cout << sum << endl;
 }
