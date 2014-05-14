@@ -22,6 +22,6 @@ if [ ${#argv1} -gt 0 ]; then
 fi
 
 # training for $round_val rounds
-../svd_feature art.conf num_round=$1 num_factor=$2
+../svd_feature art.conf num_round=$round_val num_factor=$factor_val
 # write out prediction from model
-../svd_feature_infer art.conf pred=$1 num_facotr=$2
+../svd_feature_infer art.conf pred=$round_val num_facotr=$factor_val
