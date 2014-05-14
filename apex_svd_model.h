@@ -28,6 +28,7 @@
 #include <cstdlib>
 #include "apex-utils/apex_utils.h"
 #include "apex-tensor/apex_tensor.h"
+#include <fstream>
 
 /*! \brief namespace for matrix data structures and operations */
 namespace apex_tensor{
@@ -582,6 +583,42 @@ namespace apex_svd{
                     apex_tensor::cpu_only::load_from_file( ui_bias, fi, true );
                     apex_tensor::cpu_only::load_from_file( W_uiset, fi, true );
                 }
+				using namespace std;
+				ofstream f_u_bias("u_bias.txt"), f_w_user("w_user.txt"), f_i_bias("i_bias.txt"), f_w_item("w_item.txt");
+
+				// u bias
+				f_u_bias << u_bias.x_max << endl;
+				for (int i = 0; i < u_bias.x_max; i++){
+					f_u_bias << u_bias.elem[i] << endl;
+				}
+				f_u_bias.close();
+
+				// i bias
+				f_i_bias << i_bias.x_max << endl;
+				for (int i = 0; i < i_bias.x_max; i++){
+					f_i_bias << i_bias.elem[i] << endl;
+				}
+				f_i_bias.close();
+
+				// u matrix
+				f_w_user << W_user.y_max << " " << W_user.x_max << endl;
+				for (int i = 0; i < W_user.y_max; i++){
+					for (int j = 0; j < W_user.x_max; j++) {
+						f_w_user << W_user[i].elem[j] << " ";
+					}
+					f_w_user << endl;
+				}
+				f_w_user.close();
+
+				// i matrix
+				f_w_item << W_item.y_max << " " << W_item.x_max << endl;
+				for (int i = 0; i < W_item.y_max; i++){
+					for (int j = 0; j < W_item.x_max; j++) {
+						f_w_item << W_item[i].elem[j] << " ";
+					}
+					f_w_item << endl;
+				}
+				f_w_item.close();
             }
             {
                 apex_tensor::cpu_only::load_from_file( g_bias, fi, true );

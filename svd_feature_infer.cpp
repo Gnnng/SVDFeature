@@ -387,13 +387,13 @@ namespace apex_svd{
         virtual void run_task( void ){            
             this->configure();
             this->init();
-            if( this->pred_model >= 0 ){                
+            /*if( this->pred_model >= 0 ){                
                 if( svd_inferencer != NULL ) this->task_pred();
                 if( svd_ranker != NULL ) this->task_pred_rank();
             }else{
                 apex_utils::assert_true( svd_inferencer != NULL, "can only use ranker for rank prediction" );
                 this->task_eval();
-            }
+            }*/
         }        
     };
 };
